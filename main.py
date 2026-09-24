@@ -3,11 +3,11 @@ from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.shared import Pt
 
 GUIDE_TEMPLATE = {
-    "title":   {"size": 20, "bold": True,  "align": "center"},
-    "heading": {"size": 13, "bold": True,  "align": "left"},
-    "bullet":  {"size": 10, "bold": False, "align": "left"},
-    "body":    {"size": 10, "bold": False, "align": "left"},
-    "blank":   {"size": 10, "bold": False, "align": "left"},
+    "title":   {"size": 20, "bold": True,  "align": "center", "font": "Times New Roman"},
+    "heading": {"size": 13, "bold": True,  "align": "left", "font": "Times New Roman"},
+    "bullet":  {"size": 10, "bold": False, "align": "left", "font": "Times New Roman"},
+    "body":    {"size": 10, "bold": False, "align": "left", "font": "Times New Roman"},
+    "blank":   {"size": 10, "bold": False, "align": "left", "font": "Times New Roman"},
 }
 
 
@@ -62,6 +62,7 @@ def apply_style(paragraph, role, template):
     for run in paragraph.runs:
         run.bold = style["bold"]
         run.font.size = Pt(style["size"])
+        run.font.name = style["font"]
 
 def format_document(input_path, output_path, template):
     doc = Document(input_path)
