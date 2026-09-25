@@ -82,4 +82,4 @@ def format_document(input_path, output_path, template):
     print("Document formatted...")
 
 
-format_document("sample.docx", "formatted_output.docx", GUIDE_TEMPLATE) dms,d
+format_document("sample.docx", "formatted_output.docx", GUIDE_TEMPLATE) 
