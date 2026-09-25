@@ -72,7 +72,14 @@ def format_document(input_path, output_path, template):
         role = classify_role(para_data, index)
         apply_style(paragraph, role, template)
 
+    for table in doc.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                for paragraph in cell.paragraphs:
+                    apply_style(paragraph, "body", template)
+
     doc.save(output_path)
+    print("Document formatted...")
 
 
-format_document("sample.docx", "formatted_output.docx", GUIDE_TEMPLATE)
+format_document("sample.docx", "formatted_output.docx", GUIDE_TEMPLATE) dms,d
